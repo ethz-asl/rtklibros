@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/12/30 06:58:48.128.cpp,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.cpp</Transaction>
+    <Transaction>2008/12/30 06:58:48.128.h,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.h</Transaction>
+    <Transaction>2008/12/30 06:58:48.128.dfm,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.dfm</Transaction>
+    <Transaction>2008/12/30 06:59:44.875.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\Project1.bdsproj=G:\rtklib_2.1.1\app\rtksvr\srctblbrows.bdsproj</Transaction>
+    <Transaction>2008/12/30 07:00:06.344.cpp,G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.cpp=G:\rtklib_2.1.1\app\rtksvr\browsmain.cpp</Transaction>
+    <Transaction>2008/12/30 07:00:06.344.h,G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.h=G:\rtklib_2.1.1\app\rtksvr\browsmain.h</Transaction>
+    <Transaction>2008/12/30 07:00:06.344.dfm,G:\rtklib_2.1.1\app\rtksvr\srctblbrowser.dfm=G:\rtklib_2.1.1\app\rtksvr\browsmain.dfm</Transaction>
+    <Transaction>2008/12/30 07:03:52.771.cpp,G:\rtklib_2.1.1\app\rtksvr\browsmain.cpp=</Transaction>
+    <Transaction>2008/12/30 07:03:52.771.dfm,G:\rtklib_2.1.1\app\rtksvr\browsmain.dfm=</Transaction>
+    <Transaction>2008/12/30 07:06:34.554.cpp,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.cpp=G:\rtklib_2.1.1\app\rtksvr\browsmain.cpp</Transaction>
+    <Transaction>2008/12/30 07:06:34.554.h,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.h=G:\rtklib_2.1.1\app\rtksvr\browsmain.h</Transaction>
+    <Transaction>2008/12/30 07:06:34.554.dfm,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.dfm=G:\rtklib_2.1.1\app\rtksvr\browsmain.dfm</Transaction>
+    <Transaction>2009/01/03 02:24:36.570.cpp,G:\rtklib_2.1.1\app\rtksvr\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\aboutdlg.cpp</Transaction>
+    <Transaction>2009/01/03 02:24:36.570.h,G:\rtklib_2.1.1\app\rtksvr\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\aboutdlg.h</Transaction>
+    <Transaction>2009/01/03 02:24:36.570.dfm,G:\rtklib_2.1.1\app\rtksvr\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\aboutdlg.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

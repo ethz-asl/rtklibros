@@ -1,0 +1,10 @@
+<launch>
+    <node name="rtkrcv" pkg="rtklib" type="rtkrcv" clear_params="true" output="screen"
+
+args="-t 5 -s -o $(find rtklib)/conf/rtk_server.conf" 
+
+>
+	
+    </node>
+</launch>
+

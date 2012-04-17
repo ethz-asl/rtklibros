@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/01/29 00:15:01.576.c,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.c=G:\rtklib_2.2.0b\app\pos2kml\bcc\main.c</Transaction>
+    <Transaction>2009/01/29 00:16:25.524.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\ttaka\Documents\Borland Studio Projects\rnx2rtkp.bdsproj</Transaction>
+    <Transaction>2009/01/29 00:16:40.302.c,G:\rtklib_2.2.0b\app\pos2kml\bcc\main.c=</Transaction>
+    <Transaction>2009/01/29 00:19:17.900.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\rnx2rtkp.bdsproj=G:\rtklib_2.2.0b\app\pos2kml\bcc\rnx2rtkp.bdsproj</Transaction>
+    <Transaction>2009/01/29 00:25:04.228.c,G:\rtklib_2.2.0b\app\pos2kml\pos2kml.c=</Transaction>
+    <Transaction>2009/01/29 00:25:22.794.bdsproj,G:\rtklib_2.2.0b\app\pos2kml\bcc\rnx2rtkp.bdsproj=G:\rtklib_2.2.0b\app\pos2kml\bcc\pos2kml.bdsproj</Transaction>
+    <Transaction>2009/01/29 00:26:02.908.bdsproj,G:\rtklib_2.2.0b\app\pos2kml\bcc\pos2kml.bdsproj=G:\rtklib_2.2.0b\app\pos2kml\bcc\_pos2kml.bdsproj</Transaction>
+    <Transaction>2009/01/29 01:06:40.145.res,G:\rtklib_2.2.0b\app\pos2kml\bcc\_pos2kml.res=</Transaction>
+  </Transactions>
+</BorlandProject>

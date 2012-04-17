@@ -1,0 +1,35 @@
+rtklib version 2.4.1
+
+================== GPS MEASUREMENT NODE ========================
+
+To start the "rover" gps measurements launch the start_gps_meas file. 
+This will start a service reading from COM and publishing data to TCP port 8600.
+
+===> adapt parameters such as serial port config in the launchfile
+
+
+================ KINEMATIC PROCESSING SERVER ===================
+
+To start the "real time kinematic processing" server launch start_rtkrcv.
+
+===> you probably want to adjust the settings in ./conf/rtk_server.conf
+
+IMPORTANT VALUE CHANGES: (flagged with @ADAPT in the config file)
+
+line 60: ant1-pos1  (deg|m) = LAT STATION1 POSITION
+line 60: ant1-pos2  (deg|m)  = LON STATION1 POSITION
+line 60: ant1-pos3  (m|m) = HEIGHT STATION1 POSITION	
+
+line 68: ant2-pos1  (deg|m) = LAT STATION2 POSITION
+line 69: ant2-pos2  (deg|m)  = LON STATION2 POSITION
+line 70: ant2-pos3  (m|m) = HEIGHT STATION2 POSITION	
+
+line 89: inpstr1-type = ROVER MEAS SOURCE
+line 90: inpstr2-type = BASE MEAS SOURCE
+line 97: inpstr1-path = ROVER MEAS SOURCE PARAM
+line 98: inpstr2-path = BASE MEAS SOURCE PARAM
+
+
+This will start a service reading both station and rover measurements, computing
+the solution (baseline ENU) and publishing it at port 8601 and as a ros message at topic:
+/baseline

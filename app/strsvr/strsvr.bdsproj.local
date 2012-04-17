@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/12/22 00:00:32.059.cpp,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\svrmain.cpp</Transaction>
+    <Transaction>2008/12/22 00:00:32.063.h,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\svrmain.h</Transaction>
+    <Transaction>2008/12/22 00:00:32.063.dfm,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\svrmain.dfm</Transaction>
+    <Transaction>2008/12/22 00:00:45.827.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\Project1.bdsproj=G:\rtklib_2.1.1\app\rtksvr\rtksvr.bdsproj</Transaction>
+    <Transaction>2008/12/22 15:37:04.446.cpp,G:\rtklib_2.1.1\app\rtksvr\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\fileoptdlg.cpp</Transaction>
+    <Transaction>2008/12/22 15:37:04.461.h,G:\rtklib_2.1.1\app\rtksvr\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\fileoptdlg.h</Transaction>
+    <Transaction>2008/12/22 15:37:04.461.dfm,G:\rtklib_2.1.1\app\rtksvr\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\fileoptdlg.dfm</Transaction>
+    <Transaction>2008/12/22 15:39:40.540.cpp,G:\rtklib_2.1.1\app\rtksvr\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\tcpoptdlg.cpp</Transaction>
+    <Transaction>2008/12/22 15:39:40.540.h,G:\rtklib_2.1.1\app\rtksvr\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\tcpoptdlg.h</Transaction>
+    <Transaction>2008/12/22 15:39:40.540.dfm,G:\rtklib_2.1.1\app\rtksvr\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\tcpoptdlg.dfm</Transaction>
+    <Transaction>2008/12/26 14:30:50.134.cpp,G:\rtklib_2.1.1\app\rtksvr\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\svroptdlg.cpp</Transaction>
+    <Transaction>2008/12/26 14:30:50.134.h,G:\rtklib_2.1.1\app\rtksvr\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\svroptdlg.h</Transaction>
+    <Transaction>2008/12/26 14:30:50.134.dfm,G:\rtklib_2.1.1\app\rtksvr\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\svroptdlg.dfm</Transaction>
+    <Transaction>2008/12/29 02:11:39.470.cpp,G:\rtklib_2.1.1\app\rtksvr\Unit1.cpp=G:\rtklib_2.1.1\app\rtksvr\srctbldlg.cpp</Transaction>
+    <Transaction>2008/12/29 02:11:39.477.h,G:\rtklib_2.1.1\app\rtksvr\Unit1.h=G:\rtklib_2.1.1\app\rtksvr\srctbldlg.h</Transaction>
+    <Transaction>2008/12/29 02:11:39.477.dfm,G:\rtklib_2.1.1\app\rtksvr\Unit1.dfm=G:\rtklib_2.1.1\app\rtksvr\srctbldlg.dfm</Transaction>
+    <Transaction>2008/12/30 07:06:34.471.cpp,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.cpp=G:\rtklib_2.1.1\app\rtksvr\browsmain.cpp</Transaction>
+    <Transaction>2008/12/30 07:06:34.471.h,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.h=G:\rtklib_2.1.1\app\rtksvr\browsmain.h</Transaction>
+    <Transaction>2008/12/30 07:06:34.471.dfm,G:\rtklib_2.1.1\app\rtksvr\srctbldlg.dfm=G:\rtklib_2.1.1\app\rtksvr\browsmain.dfm</Transaction>
+    <Transaction>2008/12/30 07:07:48.065.cpp,G:\rtklib_2.1.1\app\rtksvr\browsmain.cpp=</Transaction>
+    <Transaction>2008/12/30 07:07:48.065.dfm,G:\rtklib_2.1.1\app\rtksvr\browsmain.dfm=</Transaction>
+    <Transaction>2009/01/07 21:19:56.515.cpp,G:\rtklib_2.2.0b\app\appcmn\aboutdlg.cpp=</Transaction>
+    <Transaction>2009/01/07 21:19:56.515.dfm,G:\rtklib_2.2.0b\app\appcmn\aboutdlg.dfm=</Transaction>
+    <Transaction>2009/01/14 21:41:55.754.bdsproj,G:\rtklib_2.2.0b\app\rtksvr\rtksvr.bdsproj=G:\rtklib_2.2.0b\app\rtksvr\strsvr.bdsproj</Transaction>
+    <Transaction>2009/04/04 13:44:49.671.cpp,G:\rtklib_2.2.1\app\strsvr\Unit1.cpp=G:\rtklib_2.2.1\app\strsvr\strmondlg.cpp</Transaction>
+    <Transaction>2009/04/04 13:44:49.671.h,G:\rtklib_2.2.1\app\strsvr\Unit1.h=G:\rtklib_2.2.1\app\strsvr\strmondlg.h</Transaction>
+    <Transaction>2009/04/04 13:44:49.671.dfm,G:\rtklib_2.2.1\app\strsvr\Unit1.dfm=G:\rtklib_2.2.1\app\strsvr\strmondlg.dfm</Transaction>
+    <Transaction>2010/04/04 17:47:40.498.cpp,G:\rtklib\app\appcmn\tcpoptdlg.cpp=G:\rtklib\app\appcmn\ftpoptdlg.cpp</Transaction>
+    <Transaction>2010/04/04 17:47:40.511.h,G:\rtklib\app\appcmn\tcpoptdlg.h=G:\rtklib\app\appcmn\ftpoptdlg.h</Transaction>
+    <Transaction>2010/04/04 17:47:40.511.dfm,G:\rtklib\app\appcmn\tcpoptdlg.dfm=G:\rtklib\app\appcmn\ftpoptdlg.dfm</Transaction>
+    <Transaction>2010/04/20 13:25:10.836.c,D:\proj\rtklib\src\rinex.c=</Transaction>
+    <Transaction>2010/07/10 12:33:38.110.cpp,D:\proj\rtklib\app\strsvr\strmondlg.cpp=</Transaction>
+    <Transaction>2010/07/10 12:33:38.110.dfm,D:\proj\rtklib\app\strsvr\strmondlg.dfm=</Transaction>
+    <Transaction>2011/05/28 18:38:54.158.cpp,D:\proj\rtklib\app\strsvr\Unit1.cpp=D:\proj\rtklib\app\strsvr\convdlgcpp.cpp</Transaction>
+    <Transaction>2011/05/28 18:38:54.158.h,D:\proj\rtklib\app\strsvr\Unit1.h=D:\proj\rtklib\app\strsvr\convdlgcpp.h</Transaction>
+    <Transaction>2011/05/28 18:38:54.158.dfm,D:\proj\rtklib\app\strsvr\Unit1.dfm=D:\proj\rtklib\app\strsvr\convdlgcpp.dfm</Transaction>
+    <Transaction>2011/05/28 19:25:32.314.cpp,D:\proj\rtklib\app\strsvr\convdlgcpp.cpp=D:\proj\rtklib\app\strsvr\convdlg.cpp</Transaction>
+    <Transaction>2011/05/28 19:25:32.314.h,D:\proj\rtklib\app\strsvr\convdlgcpp.h=D:\proj\rtklib\app\strsvr\convdlg.h</Transaction>
+    <Transaction>2011/05/28 19:25:32.314.dfm,D:\proj\rtklib\app\strsvr\convdlgcpp.dfm=D:\proj\rtklib\app\strsvr\convdlg.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

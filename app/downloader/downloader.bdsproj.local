@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/07/10 18:22:31.959.cpp,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.cpp=D:\proj\rtklib\app\downloader\dlmain.cpp</Transaction>
+    <Transaction>2010/07/10 18:22:31.959.h,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.h=D:\proj\rtklib\app\downloader\dlmain.h</Transaction>
+    <Transaction>2010/07/10 18:22:31.959.dfm,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.dfm=D:\proj\rtklib\app\downloader\dlmain.dfm</Transaction>
+    <Transaction>2010/07/10 18:22:50.427.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\Project1.bdsproj=D:\proj\rtklib\app\downloader\downloader.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

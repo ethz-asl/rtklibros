@@ -1,0 +1,9 @@
+<launch>
+    <node name="gps_meas" pkg="rtklib" type="str2str" clear_params="true" output="screen"
+
+args=" -in serial://ttyACM0:57600:8:n:1:off -out tcpsvr://:8600 -d 5000 -out file://$(find rtklib)/logs/%Y%m%d_%h%M_gps_meas.log" 
+
+>
+    </node>
+</launch>
+

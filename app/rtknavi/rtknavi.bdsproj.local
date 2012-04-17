@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/12/16 09:59:26.645.cpp,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.cpp=G:\rtklib_2.2\app\rtknavi\navimain.cpp</Transaction>
+    <Transaction>2008/12/16 09:59:26.645.h,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.h=G:\rtklib_2.2\app\rtknavi\navimain.h</Transaction>
+    <Transaction>2008/12/16 09:59:26.645.dfm,C:\Users\ttaka\Documents\Borland Studio Projects\Unit1.dfm=G:\rtklib_2.2\app\rtknavi\navimain.dfm</Transaction>
+    <Transaction>2008/12/16 09:59:40.646.bdsproj,C:\Users\ttaka\Documents\Borland Studio Projects\Project1.bdsproj=G:\rtklib_2.2\app\rtknavi\rtknavi.bdsproj</Transaction>
+    <Transaction>2009/01/04 10:41:40.501.cpp,G:\rtklib_2.1.1\app\rtknavi\Unit2.cpp=G:\rtklib_2.1.1\app\rtknavi\portdlg.cpp</Transaction>
+    <Transaction>2009/01/04 10:41:40.501.h,G:\rtklib_2.1.1\app\rtknavi\Unit2.h=G:\rtklib_2.1.1\app\rtknavi\portdlg.h</Transaction>
+    <Transaction>2009/01/04 10:41:40.501.dfm,G:\rtklib_2.1.1\app\rtknavi\Unit2.dfm=G:\rtklib_2.1.1\app\rtknavi\portdlg.dfm</Transaction>
+    <Transaction>2009/01/06 13:27:26.937.cpp,G:\rtklib_2.1.1\app\rtknavi\portdlg.cpp=G:\rtklib_2.1.1\app\rtknavi\streamdlg.cpp</Transaction>
+    <Transaction>2009/01/06 13:27:26.937.h,G:\rtklib_2.1.1\app\rtknavi\portdlg.h=G:\rtklib_2.1.1\app\rtknavi\streamdlg.h</Transaction>
+    <Transaction>2009/01/06 13:27:26.937.dfm,G:\rtklib_2.1.1\app\rtknavi\portdlg.dfm=G:\rtklib_2.1.1\app\rtknavi\streamdlg.dfm</Transaction>
+    <Transaction>2009/01/06 13:27:36.870.cpp,G:\rtklib_2.1.1\app\rtknavi\streamdlg.cpp=G:\rtklib_2.1.1\app\rtknavi\strdlg.cpp</Transaction>
+    <Transaction>2009/01/06 13:27:36.870.h,G:\rtklib_2.1.1\app\rtknavi\streamdlg.h=G:\rtklib_2.1.1\app\rtknavi\strdlg.h</Transaction>
+    <Transaction>2009/01/06 13:27:36.870.dfm,G:\rtklib_2.1.1\app\rtknavi\streamdlg.dfm=G:\rtklib_2.1.1\app\rtknavi\strdlg.dfm</Transaction>
+    <Transaction>2009/01/07 12:23:22.972.cpp,G:\rtklib_2.2.0b\app\rtknavi\postopt.cpp=G:\rtklib_2.2.0b\app\rtknavi\naviopt.cpp</Transaction>
+    <Transaction>2009/01/07 12:23:22.976.h,G:\rtklib_2.2.0b\app\rtknavi\postopt.h=G:\rtklib_2.2.0b\app\rtknavi\naviopt.h</Transaction>
+    <Transaction>2009/01/07 12:23:22.976.dfm,G:\rtklib_2.2.0b\app\rtknavi\postopt.dfm=G:\rtklib_2.2.0b\app\rtknavi\naviopt.dfm</Transaction>
+    <Transaction>2009/01/07 17:11:39.597.cpp,G:\rtklib_2.2.0b\app\rtknavi\Unit1.cpp=G:\rtklib_2.2.0b\app\rtknavi\datadlg.cpp</Transaction>
+    <Transaction>2009/01/07 17:11:39.597.h,G:\rtklib_2.2.0b\app\rtknavi\Unit1.h=G:\rtklib_2.2.0b\app\rtknavi\datadlg.h</Transaction>
+    <Transaction>2009/01/07 17:11:39.597.dfm,G:\rtklib_2.2.0b\app\rtknavi\Unit1.dfm=G:\rtklib_2.2.0b\app\rtknavi\datadlg.dfm</Transaction>
+    <Transaction>2009/01/09 00:39:12.526.cpp,G:\rtklib_2.2.0b\app\rtknavi\datadlg.cpp=G:\rtklib_2.2.0b\app\rtknavi\mondlg.cpp</Transaction>
+    <Transaction>2009/01/09 00:39:12.543.h,G:\rtklib_2.2.0b\app\rtknavi\datadlg.h=G:\rtklib_2.2.0b\app\rtknavi\mondlg.h</Transaction>
+    <Transaction>2009/01/09 00:39:12.543.dfm,G:\rtklib_2.2.0b\app\rtknavi\datadlg.dfm=G:\rtklib_2.2.0b\app\rtknavi\mondlg.dfm</Transaction>
+    <Transaction>2009/01/09 21:54:29.854.c,G:\rtklib_2.2.0b\src\sbas.c=</Transaction>
+    <Transaction>2009/04/04 08:51:29.955.cpp,G:\rtklib_2.2.1\app\rtknavi\Unit1.cpp=G:\rtklib_2.2.1\app\rtknavi\mapdlg.cpp</Transaction>
+    <Transaction>2009/04/04 08:51:29.964.h,G:\rtklib_2.2.1\app\rtknavi\Unit1.h=G:\rtklib_2.2.1\app\rtknavi\mapdlg.h</Transaction>
+    <Transaction>2009/04/04 08:51:29.964.dfm,G:\rtklib_2.2.1\app\rtknavi\Unit1.dfm=G:\rtklib_2.2.1\app\rtknavi\mapdlg.dfm</Transaction>
+    <Transaction>2009/04/08 03:05:33.281.c,G:\rtklib_2.2.1\src\rcv\rtcm2.c=</Transaction>
+    <Transaction>2009/04/08 03:05:37.384.c,G:\rtklib_2.2.1\src\rcv\rtcm3.c=</Transaction>
+    <Transaction>2009/04/11 19:17:55.779.c,G:\rtklib_2.2.1\src\rcv\crescent.c=</Transaction>
+    <Transaction>2009/04/11 19:18:00.037.c,G:\rtklib_2.2.1\src\rcv\garmin.c=</Transaction>
+    <Transaction>2009/04/11 19:18:03.271.c,G:\rtklib_2.2.1\src\rcv\ss2.c=</Transaction>
+    <Transaction>2009/04/13 07:22:15.623.cpp,G:\rtklib_2.2.1\app\rtknavi\strdlg.cpp=G:\rtklib_2.2.1\app\rtknavi\outdlg.cpp</Transaction>
+    <Transaction>2009/04/13 07:22:15.628.h,G:\rtklib_2.2.1\app\rtknavi\strdlg.h=G:\rtklib_2.2.1\app\rtknavi\outdlg.h</Transaction>
+    <Transaction>2009/04/13 07:22:15.628.dfm,G:\rtklib_2.2.1\app\rtknavi\strdlg.dfm=G:\rtklib_2.2.1\app\rtknavi\outdlg.dfm</Transaction>
+    <Transaction>2009/04/13 07:33:31.269.cpp,G:\rtklib_2.2.1\app\rtknavi\outdlg.cpp=G:\rtklib_2.2.1\app\rtknavi\outstrdlg.cpp</Transaction>
+    <Transaction>2009/04/13 07:33:31.269.h,G:\rtklib_2.2.1\app\rtknavi\outdlg.h=G:\rtklib_2.2.1\app\rtknavi\outstrdlg.h</Transaction>
+    <Transaction>2009/04/13 07:33:31.269.dfm,G:\rtklib_2.2.1\app\rtknavi\outdlg.dfm=G:\rtklib_2.2.1\app\rtknavi\outstrdlg.dfm</Transaction>
+    <Transaction>2009/04/13 07:33:41.427.cpp,G:\rtklib_2.2.1\app\rtknavi\strdlg.cpp=G:\rtklib_2.2.1\app\rtknavi\instrdlg.cpp</Transaction>
+    <Transaction>2009/04/13 07:33:41.427.h,G:\rtklib_2.2.1\app\rtknavi\strdlg.h=G:\rtklib_2.2.1\app\rtknavi\instrdlg.h</Transaction>
+    <Transaction>2009/04/13 07:33:41.427.dfm,G:\rtklib_2.2.1\app\rtknavi\strdlg.dfm=G:\rtklib_2.2.1\app\rtknavi\instrdlg.dfm</Transaction>
+    <Transaction>2009/04/13 14:15:50.847.cpp,G:\rtklib_2.2.1\app\appcmn\fileoptdlg.cpp=</Transaction>
+    <Transaction>2009/04/13 14:15:50.847.dfm,G:\rtklib_2.2.1\app\appcmn\fileoptdlg.dfm=</Transaction>
+    <Transaction>2009/04/15 11:53:20.594.cpp,G:\rtklib_2.2.1\app\rtknavi\Unit1.cpp=G:\rtklib_2.2.1\app\rtknavi\pntdlg.cpp</Transaction>
+    <Transaction>2009/04/15 11:53:20.602.h,G:\rtklib_2.2.1\app\rtknavi\Unit1.h=G:\rtklib_2.2.1\app\rtknavi\pntdlg.h</Transaction>
+    <Transaction>2009/04/15 11:53:20.602.dfm,G:\rtklib_2.2.1\app\rtknavi\Unit1.dfm=G:\rtklib_2.2.1\app\rtknavi\pntdlg.dfm</Transaction>
+    <Transaction>2009/10/09 08:14:00.983.cpp,G:\rtklib_trunk\app\rtknavi\Unit1.cpp=G:\rtklib_trunk\app\rtknavi\keydlg.cpp</Transaction>
+    <Transaction>2009/10/09 08:14:00.983.h,G:\rtklib_trunk\app\rtknavi\Unit1.h=G:\rtklib_trunk\app\rtknavi\keydlg.h</Transaction>
+    <Transaction>2009/10/09 08:14:00.983.dfm,G:\rtklib_trunk\app\rtknavi\Unit1.dfm=G:\rtklib_trunk\app\rtknavi\keydlg.dfm</Transaction>
+    <Transaction>2010/02/21 15:38:17.918.lib,G:\rtklib_trunk\mkl\mkl_lapack.lib=</Transaction>
+    <Transaction>2010/02/21 15:38:21.488.lib,G:\rtklib_trunk\mkl\mkl_p4p.lib=</Transaction>
+    <Transaction>2010/07/09 16:49:32.409.cpp,D:\proj\rtklib\app\rtknavi\mapdlg.cpp=</Transaction>
+    <Transaction>2010/07/09 16:49:32.410.dfm,D:\proj\rtklib\app\rtknavi\mapdlg.dfm=</Transaction>
+    <Transaction>2010/07/10 11:59:43.560.cpp,D:\proj\rtklib\app\appcmn\console.cpp=</Transaction>
+    <Transaction>2011/01/12 00:18:53.065.cpp,D:\proj\rtklib\app\rtknavi\Unit1.cpp=D:\proj\rtklib\app\rtknavi\rcvoptdlg.cpp</Transaction>
+    <Transaction>2011/01/12 00:18:53.065.h,D:\proj\rtklib\app\rtknavi\Unit1.h=D:\proj\rtklib\app\rtknavi\rcvoptdlg.h</Transaction>
+    <Transaction>2011/01/12 00:18:53.065.dfm,D:\proj\rtklib\app\rtknavi\Unit1.dfm=D:\proj\rtklib\app\rtknavi\rcvoptdlg.dfm</Transaction>
+    <Transaction>2011/01/19 13:54:15.618.lib,C:\proj\rtklib\lib\omf\mkl_lapack_omf.lib=</Transaction>
+    <Transaction>2011/01/19 13:54:24.301.lib,C:\proj\rtklib\lib\omf\mkl_p4p_omf.lib=</Transaction>
+  </Transactions>
+</BorlandProject>
