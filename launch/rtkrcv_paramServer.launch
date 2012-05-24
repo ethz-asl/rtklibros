@@ -1,0 +1,10 @@
+<launch>
+    <node name="rtkrcv" pkg="rtklib" type="rtkrcv" clear_params="true" output="screen"
+
+args="-t 5 -s " 
+
+>
+	<rosparam file="$(find rtklib)/params/rtklib_params_BaseAndRover.yaml"/>
+    </node>
+</launch>
+

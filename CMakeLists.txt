@@ -13,7 +13,13 @@ link_libraries(m)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-rosbuild_genmsg()
+rosbuild_gensrv()
+
+#add dynamic reconfigure api
+#rosbuild_find_ros_package(dynamic_reconfigure)
+#include(${dynamic_reconfigure_PACKAGE_PATH}/cmake/cfgbuild.cmake)
+#gencfg()
+
 
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 
@@ -82,11 +88,10 @@ sbas stream rtcm preceph options pntpos ppp ublox
 #rtkrcv
 
 rosbuild_add_library(rtksvr src/rtksvr.cc)
-rosbuild_add_executable(rtkrcv app/rtkrcv/rtkrcv.cc)
+rosbuild_add_executable(rtkrcv app/rtkrcv/rtkrcvros.cc)
 target_link_libraries(rtkrcv rtkcmn rtksvr rtkpos geoid solution lambda
 sbas stream rtcm preceph options pntpos ppp ublox 
  ephemeris rinex ionex)
-
 
 
 

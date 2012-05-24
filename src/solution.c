@@ -972,6 +972,8 @@ void outros(double* pos, double* rr, double* enu, double* P, double* Q, const so
 	covenu(pos,P,Q); /*pos cov (no vel cov provided)*/
 	ecef2enu(pos,rr,enu); /*position*/
 	ecef2enu(pos+3,rr+3,enu+3); /*velocity*/
+	
+	ecef2pos(sol->rr,pos);  /*lat lon of rover (instead of base) */
 	/*p+=sprintf(p,"%s%s%14.4f%s%14.4f%s%14.4f%s%3d%s%3d%s%8.4f%s%8.4f%s%8.4f%s%8.4f%s%8.4f%s%8.4f%s%6.2f%s%6.1f\n",
 			s,sep,enu[0],sep,enu[1],sep,enu[2],sep,sol->stat,sep,sol->ns,sep,
 			SQRT(Q[0]),sep,SQRT(Q[4]),sep,SQRT(Q[8]),sep,sqvar(Q[1]),

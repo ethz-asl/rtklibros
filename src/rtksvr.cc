@@ -51,7 +51,7 @@ static void saveoutbuf(rtksvr_t *svr, unsigned char *buff, int n, int index)
 	rtksvrunlock(svr);
 }
 /* write solution to output stream -------------------------------------------*/
-static void writesol(rtksvr_t *svr, int index, geometry_msgs::PoseWithCovarianceStamped& pse)
+static void writesol(rtksvr_t *svr, int index, geometry_msgs::PoseWithCovarianceStamped& pse, geometry_msgs::PoseWithCovarianceStamped& pse2)
 {
 	solopt_t solopt=solopt_default;
 	unsigned char buff[1024];
@@ -66,7 +66,8 @@ static void writesol(rtksvr_t *svr, int index, geometry_msgs::PoseWithCovariance
 
 		/*slynen{*/
 		pse.header.stamp = ros::Time::now();
-
+		pse2.header.stamp = ros::Time::now();
+		
 		double pos[6], rr[6], enu[6], P[36], Q[36];//pos and vel
 
 		outros(pos, rr, enu, P, Q, &svr->rtk.sol, svr->rtk.rb, svr->solopt+i);
@@ -88,6 +89,24 @@ static void writesol(rtksvr_t *svr, int index, geometry_msgs::PoseWithCovariance
 		/*var quat to -1 == not applicable*/
 		pse.pose.covariance.elems[21] = pse.pose.covariance.elems[28] = pse.pose.covariance.elems[35] = -1;
 		/*}*/
+		
+		/*gridanie{*/
+        // put the latitude and longitude into a second message
+		pse2.pose.pose.position.x = pos[0]*R2D; //latitude
+		pse2.pose.pose.position.y = pos[1]*R2D; //longitude
+		pse2.pose.pose.position.z = pos[2]; //height
+
+		pse2.pose.covariance[0] = Q[0]; //var East
+		pse2.pose.covariance[7] = Q[7]; //var North
+		pse2.pose.covariance[14] = Q[14]; //var Uup
+
+		pse2.pose.covariance[1] = pse.pose.covariance[6] = Q[1]; //cov East/North
+		pse2.pose.covariance[2] = pse.pose.covariance[12] = Q[8]; //cov North/Up
+		pse2.pose.covariance[3] = pse.pose.covariance[13] = Q[2]; //cov East/Up
+
+		/*var quat to -1 == not applicable*/
+		pse2.pose.covariance.elems[21] = pse.pose.covariance.elems[28] = pse.pose.covariance.elems[35] = -1;		
+		/*}gridanie*/
 
 		/* save output buffer */
 		saveoutbuf(svr,buff,n,i);
@@ -408,6 +427,7 @@ static void *rtksvrthread(void *arg)
 	/*slynen{*/
 	ros::NodeHandle ros_nh;
 	ros::Publisher pub_baseline = ros_nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("baseline", 1000);
+	ros::Publisher pub_latlon = ros_nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("latlon", 1000);
 	std::string frame_id;
 	ros_nh.getParam("frame_id", frame_id);
 	/*}*/
@@ -466,8 +486,11 @@ static void *rtksvrthread(void *arg)
 				/*slynen{*/
 				geometry_msgs::PoseWithCovarianceStamped pse;
 				pse.header.frame_id = frame_id;
-				writesol(svr,i,pse);
+				geometry_msgs::PoseWithCovarianceStamped pse2;
+				pse.header.frame_id = frame_id;
+				writesol(svr,i,pse,pse2);
 				pub_baseline.publish(pse);
+				pub_latlon.publish(pse2);
 				/*writesol(svr,i);*/
 				/*}*/
 			}
@@ -486,9 +509,12 @@ static void *rtksvrthread(void *arg)
 			/*slynen{*/
 			geometry_msgs::PoseWithCovarianceStamped pse;
 			pse.header.frame_id = frame_id;
-			ROS_WARN("No valid solution at the moment");
-			writesol(svr,0,pse);
+			geometry_msgs::PoseWithCovarianceStamped pse2;
+			pse.header.frame_id = frame_id;
+			//ROS_WARN("No valid solution at the moment");
+			writesol(svr,0,pse,pse2);
 			pub_baseline.publish(pse);
+			pub_latlon.publish(pse2);
 			/*writesol(svr,0);*/
 			/*}*/
 		}
@@ -711,7 +737,7 @@ extern int rtksvrstart(rtksvr_t *svr, int cycle, int buffsize, int *strs,
 	updatenav(&svr->nav);
 
 	/* set monitor stream */
-	svr->moni=moni;
+	svr->moni=moni; 
 
 	/* open input streams */
 	for (i=0;i<8;i++) {
