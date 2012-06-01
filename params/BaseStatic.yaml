@@ -1,0 +1,162 @@
+#_ns: rtrklb
+
+# RTKNAVI options (2012/02/09 19:49:57, v.2.4.1)
+
+## Solver parameters
+pos1_posmode: static  # (0:single,1:dgps,2:kinematic,3:static,4:movingbase,5:fixed,6:ppp_kine,7:ppp_static)
+pos1_frequency: l1         # (1:l1,2:l1+l2,3:l1+l2+l5,4:l1+l2+l5+l6,5:l1+l2+l5+l6+l7)
+pos1_soltype: forward    # (0:forward,1:backward,2:combined)
+pos1_elmask: 15         # (deg)
+pos1_snrmask: 0          # (dBHz)
+pos1_dynamics: !!str off        # (0:off,1:on)
+pos2_armode: continuous # (0:off,1:continuous,2:instantaneous,3:fix_and_hold)
+
+
+## Input streams
+# Rover input
+inpstr1_type: serial     # ROVER (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr1_path: 'ttyACM0:57600:8:n:1:off' # @ADAPT: CHANGE ROVER MEAS SOURCE
+inpstr1_format: ubx       # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+
+# Base station input
+inpstr2_type: ntripcli     # BASE (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr2_path: 'aslteam:aslethz@www.euref-ip.net:2101/ZIM20' # @ADAPT: CHANGE BASE MEAS SOURCE
+inpstr2_format: rtcm2        #(0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+
+# Base station location
+ant2_postype: rtcm        # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)
+ant2_pos1: 0  # (deg|m) # 
+ant2_pos2: 0  # (deg|m) # 
+ant2_pos3: 0  # (m|m)	# 
+
+
+## Output streams (separate from ROS messages)
+outstr1_type: tcpsvr        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+outstr1_path: ':@:8601/:'  # SOLUTION IS OUTPUT HERE AND via ros @ topic "/baseline"
+outstr1_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
+
+
+## Logging output streams
+logstr1_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr1_path: '$(find rtklib)/logs/%Y%m%d_%h%M_rover_rtk_server'
+logstr2_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr2_path: '$(find rtklib)/logs/%Y%m%d_%h%M_base_rtk_server'
+
+
+
+#####################################################
+## Likely to not need to change these from default
+#####################################################
+# Solver options
+pos1_tidecorr: !!str off        # (0:off,1:on)
+pos1_ionoopt: brdc       # 0:off,1:brdc,2:sbas,3:dual_freq,4:est_stec,5:ionex_tec,6:qzs_brdc,7:qzs_lex,8:vtec_sf,9:vtec_ef,10:gtec)
+pos1_tropopt: saas       # (0:off,1:saas,2:sbas,3:est_ztd,4:est_ztdgrad)
+pos1_sateph: brdc       # (0:brdc,1:precise,2:brdc+sbas,3:brdc+ssrapc,4:brdc+ssrcom)
+pos1_exclsats: ''            # (prn ...)
+pos1_navsys: 5          # (1:gps+2:sbas+4:glo+8:gal+16:qzs+32:comp)
+
+pos2_gloarmode: autocal    # (0:off,1:on,2:autocal)
+pos2_arthres: 3
+pos2_arlockcnt: 0
+pos2_arelmask: 0          # (deg)
+pos2_arminfix: 10
+pos2_elmaskhold: 0          # (deg)
+pos2_aroutcnt: 5
+pos2_maxage: 30         # (s)
+pos2_slipthres: 0.05       # (m)
+pos2_rejionno: 30         # (m)
+pos2_rejgdop: 30
+pos2_niter: 1
+pos2_baselen: 0          # (m)
+pos2_basesig: 0          # (m)
+misc_timeinterp: !!str off        # (0:off,1:on)
+misc_sbasatsel: 0          # (0:all)
+
+# Set position of rover antenna
+ant1_postype: llh        # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)
+ant1_pos1: 0  # (deg|m) 
+ant1_pos2: 0  # (deg|m) 
+ant1_pos3: 0  # (m|m)
+ant1_anttype: '' # antenna types specified in rtklib documentation
+ant1_antdele: 0          # (m)
+ant1_antdeln: 0          # (m)
+ant1_antdelu: 0          # (m)
+
+# Set base station antenna type
+ant2_anttype: ''
+ant2_antdele: 0          # (m)
+ant2_antdeln: 0          # (m)
+ant2_antdelu: 0          # (m)
+
+
+# To send nmea data to base station
+inpstr2_nmeareq: !!str off        # (0:off,1:latlon,2:single)
+inpstr2_nmealat: 0          # (deg)
+inpstr2_nmealon: 0          # (deg)
+
+# Extra correction data input
+inpstr3_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr3_path: ''
+inpstr3_format: rtcm2      # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+logstr3_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr3_path: ''
+
+# Extra output stream
+outstr2_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+outstr2_path: ''
+outstr2_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
+
+# Output file options
+out_solformat: enu        # (0:llh,1:xyz,2:enu,3:nmea)
+out_outhead: on         # (0:off,1:on)
+out_outopt: !!str off        # (0:off,1:on)
+out_timesys: gpst       # (0:gpst,1:utc,2:jst)
+out_timeform: hms        # (0:tow,1:hms)
+out_timendec: 3
+out_degform: deg        # (0:deg,1:dms)
+out_fieldsep: ''
+out_height: ellipsoidal # (0:ellipsoidal,1:geodetic)
+out_geoid: internal   # (0:internal,1:egm96,2:egm08_2.5,3:egm08_1,4:gsi2000)
+out_solstatic: all        # (0:all,1:single)
+out_nmeaintv1: 0          # (s)
+out_nmeaintv2: 0          # (s)
+out_outstat: !!str off        # (0:off,1:state,2:residual)
+
+# Extra correction data files
+file_satantfile: ''
+file_rcvantfile: ''
+file_staposfile: ''
+file_geoidfile: ''
+file_ionofile: ''
+file_dcbfile: ''
+file_tempdir: tmp
+file_geexefile: ''
+file_solstatfile: ''
+file_tracefile: ''
+
+# Solver parameter statistics (for kalman filter)
+stats_eratio1: 100
+stats_eratio2: 100
+stats_errphase: 0.003      # (m)
+stats_errphaseel: 0.003      # (m)
+stats_errphasebl: 0          # (m/10km)
+stats_errdoppler: 1          # (Hz)
+stats_stdbias: 30         # (m)
+stats_stdiono: 0.03       # (m)
+stats_stdtrop: 0.3        # (m)
+stats_prnaccelh: 10         # (m/s^2)
+stats_prnaccelv: 10         # (m/s^2)
+stats_prnbias: 0.0001     # (m)
+stats_prniono: 0.001      # (m)
+stats_prntrop: 0.0001     # (m)
+stats_clkstab: 5e-12      # (s/s)
+
+# Miscenlaneous server parameters
+misc_svrcycle: 50         # (ms)
+misc_timeout: 10000      # (ms)
+misc_reconnect: 10000      # (ms)
+misc_nmeacycle: 5000       # (ms)
+misc_buffsize: 32768      # (bytes)
+misc_navmsgsel: all        # (0:all,1:rover,2:base,3:corr)
+misc_proxyaddr:  ''
+misc_fswapmargin:  30         # (s)

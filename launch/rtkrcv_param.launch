@@ -4,7 +4,7 @@
 args="-t 5 -s " 
 
 >
-	<rosparam file="$(find rtklib)/params/rtklib_params_BaseAndRover.yaml"/>
+	<rosparam file="$(find rtklib)/params/BaseAndRover.yaml"/>
     </node>
 </launch>
 

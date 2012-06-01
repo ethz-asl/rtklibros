@@ -1,24 +1,61 @@
-rtklib version 2.4.1
+ROS Wrapper for RTKLIB GPS processing library.
+Wrapper authors:  Daniel Grieneisen (gridanie@student.ethz.ch)
+                  Simon Lynen (simon.lynen@mavt.ethz.ch)
+Version 0.1
+Date:  June 01, 2012
+
+RTKLIB: 
+    -Website: http://www.rtklib.com/
+    -Authors:  T. Takasu and A. Yasuda
+    -version: 2.4.1
+
+================== INTRODUCTION ================================
+
+RTKLIB is an open source software library for GPS processing.  The library
+comes with command line and GUI programs for a variety of real-time and post-
+processing GPS tasks.  For more information, as well as the original library,
+please see http://www.rtklib.com.  This is a ROS wrapper for the library, designed
+so that the RTK server can be started via launch files and solver parameters can
+be set using the ROS parameter server.
+
+For an overview of RTKLIB, visit http://www.rtklib.com or read the paper
+Takasu_RTKLIB.pdf in the documentation folder.
+
+For a brief background on differential GPS, as well as test results geared
+towards using RTKLIB with an MAV, please see the paper Grieneisen_SA_Final.pdf in
+the documentation folder.
 
 ================== GPS MEASUREMENT NODE ========================
 
-To start the "rover" gps measurements launch the start_gps_meas file. 
+This node is used to stream GPS measurement data from a receiver to the 
+RTKLIB server.
+
+To start the "rover" gps measurements, launch gps_meas.launch. 
 This will start a service reading from COM and publishing data to TCP port 8600.
 
 ===> adapt parameters such as serial port config in the launchfile
 
 
-================ KINEMATIC PROCESSING SERVER ===================
+================ RTKLIB SERVER NODE ============================
 
-To start the "real time kinematic processing" server launch start_rtkrcv.
+This node starts an RTKLIB server for processing gps data and publishing
+solution results.
+
+To start the RTKLIB server, use one of the following launch files:
+-rtkrcv_conf.launch
+-rtkrcv_param.launch
+
+These two launch files demonstrate two different methods for setting the
+RTKLIB solver parameters.
+
+----------------- rtkrcv_conf.launch ----------------------
+This launch file loads parameters via an RTKLIB .conf file.  If you analyze data
+via the RTKLIB GUI tools, solution parameters can be saved in a .conf file.  Using
+this launch file, you can load parameters this way.
 
 ===> you probably want to adjust the settings in ./conf/rtk_server.conf
 
 IMPORTANT VALUE CHANGES: (flagged with @ADAPT in the config file)
-
-line 60: ant1-pos1  (deg|m) = LAT STATION1 POSITION
-line 60: ant1-pos2  (deg|m)  = LON STATION1 POSITION
-line 60: ant1-pos3  (m|m) = HEIGHT STATION1 POSITION	
 
 line 68: ant2-pos1  (deg|m) = LAT STATION2 POSITION
 line 69: ant2-pos2  (deg|m)  = LON STATION2 POSITION
@@ -29,7 +66,184 @@ line 90: inpstr2-type = BASE MEAS SOURCE
 line 97: inpstr1-path = ROVER MEAS SOURCE PARAM
 line 98: inpstr2-path = BASE MEAS SOURCE PARAM
 
+----------------- rtkrcv_param.launch -----------------------
+This launch file loads parameters via a .yaml file.   Example yaml file for the
+following use cases are provided in the params directory.
 
-This will start a service reading both station and rover measurements, computing
-the solution (baseline ENU) and publishing it at port 8601 and as a ros message at topic:
-/baseline
+  -BaseStatic.yaml:  Runs static solution algorithm for a stationary receiver.
+        Designed to determine a local base station position as quickly as possible
+        for use with a rover.  Position convergence time at least 20-40 minutes.
+  -RoverSingle.yaml:  Runs SBAS algorithm for a rover receiver.  Note that receiver
+        must be configured to receive SBAS data for this to work.  Otherwise,
+        a single solution is calculated.
+  -RoverBase.yaml:  Runs RTK algorithm for a rover receiver sending data over TCP
+        and a local base station connected via serial.
+
+The yaml files are organized so that parameters that most likely need to be
+adapted to get up and running are at the top, and those that likely do not
+need to be changed are at the bottom.  These can be modified to improve solution
+quality.  However, the default values seem to produce acceptable results.
+
+Scroll down to see a summary of parameters that should be adapted.
+
+----------------- ROS Services ------------------------------
+The following two rosservice callbacks are available:
+  -rtklib_fetch_params:  Fetches new parameters from the parameter server.  Note
+        that the RTKLIB server does not start solving with these parameters until
+        it is reset.
+  -rtklib_reset:  Resets the RTKLIB server, incorporating newly loaded parameters
+
+----------------- ROS Topics --------------------------------
+The following ROS message topics are published:
+  -/baseline - position (ENU) relative to base station (PoseWithCovarianceStamped)
+  -/latlon - solution latitude, longitude, altitude (PoseWithCovarianceStamped)
+  
+
+----------------- Parameter summary -------------------------
+Here are the parameters that should be adapted for different uses.  Note that
+parameter names are "foo_bar" if set in a .yaml files, but "foo-bar" if set in
+a .conf file.
+
+
+## Solver parameters
+pos1_posmode: static  # (0:single,1:dgps,2:kinematic,3:static,4:movingbase,5:fixed,6:ppp_kine,7:ppp_static)
+    -- Set the solution mode.  Solution modes are as follows:
+        -single:  No base station needed.
+        -dgps:  Code-based differential GPS.  Needs a base station.
+        -kinematic:  RTK differential GPS.  Needs a base station.
+        -static:  static differential GPS.  Assumes rover is not moving.  Needs
+            a base station.
+        -movingbase:  RTK GPS.  Does not assume base station is stationary.
+        -fixed:  Outputs best estimate of fixed location.  No base station needed.
+        -ppp_kine:  Precise Point Positioning algorithm for a moving receiver.
+            Needs high quality ephemeris and clock data.
+        -ppp_static:  Precise Point Positioning algorithm for a stationary receiver.
+            Needs high quality ephemeris and clock data.
+                        
+pos1_frequency: l1         # (1:l1,2:l1+l2,3:l1+l2+l5,4:l1+l2+l5+l6,5:l1+l2+l5+l6+l7)
+    -- Set the frequency bands of the receivers.  L1 is used for most cheap
+        receivers, L1+L2 for dual frequency, etc.
+pos1_soltype: forward    # (0:forward,1:backward,2:combined)
+    -- Set the solution direction in time.  Must be set to forward for real-time.
+        combined runs the solver forwards and then backwards for smoothing a
+        solution in post-processing.
+pos1_elmask: 15         # (deg)
+    -- Set the minimum elevation for a satellite to use in the solution.
+pos1_snrmask: 0          # (dBHz)
+    -- Set the minimum SNR for a satellite to use in the solution.
+pos1_dynamics: !!str off        # (0:off,1:on)
+    -- Set to include a simple model of receiver dynamics in the solution filter.
+        ** NOTE:  must use "!!str off" and "!!str on" instead of "off" or "on".
+                Without '!!str', this will get interpreted by ROS as a boolean
+                instead of a string, which is what it should be.
+pos2_armode: continuous # (0:off,1:continuous,2:instantaneous,3:fix_and_hold)
+    -- Set how integer ambiguities should be resolved.  When using 'static' or
+        'kinematic' mode, solution is calculated using carrier wave phase
+        measurement.  Distance to a satellite is the phase measurement plus an
+        integer number of wavelengths.  The solution is initially calculated with
+        a floating point number of wavelengths.  Resolving this float to an int
+        for each of the satellites is called ambiguity resolution.  When resolved,
+        solutions can be much more precise.  However, AR can be lost if the
+        receiver moves to quickly or loses view of a satellite.  Whenever
+        ambiguities are resolved or lost, the solution position tends to jump.
+        Using AR allows higher precision solutions when ambiguities can be
+        resolved, but turning it off avoids these position jumps.
+
+## Input streams
+
+# Rover input
+
+inpstr1_type: serial     # ROVER (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+    -- Set the input stream type for the rover receiver.
+
+inpstr1_path: 'ttyACM0:57600:8:n:1:off' #
+    -- Set the stream path for the rover receiver.  Path formats are as follows:
+        (specified in src/stream.c)  [] are optional parameters
+        -serial: port[:brate[:bsize[:parity[:stopb[:fctr]]]]]
+                    port  = COM?? (windows), tty??? (linuex, omit /dev/)
+                    brate = bit rate     (bps)
+                    bsize = bit size     (7|8)
+                    parity= parity       (n|o|e)
+                    stopb = stop bits    (1|2)
+                    fctr  = flow control (off|rts)
+        -file: file_path[::T][::+start][::xseppd][::S=swap]
+                    ::T   = enable time tag
+                    start = replay start offset (s)
+                    speed = replay speed factor
+                    swap  = output swap interval (hr) (0: no swap)
+        -tcpsvr:  :port
+        -tcpcli:  address:port
+        -ntripcli: [user[:passwd]]@address[:port][/mountpoint]
+        -ftp:  [user[:passwd]]@address/file_path[::T=poff[,tint[,toff,tret]]]]
+        -http:  address/file_path[::T=poff[,tint[,toff,tret]]]]
+                    poff  = time offset for path extension (s)
+                    tint  = download interval (s)
+                    toff  = download time offset (s)
+                    tret  = download retry interval (s) (0:no retry)        
+
+inpstr1_format: ubx       # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+    -- Set the rover stream format.  Supports a variety of different manufacturers'
+        formats (e.g. ubx = uBlox).
+
+# Base station input
+
+inpstr2_type: ntripcli     # BASE (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+    -- Set the base station input stream type.
+    
+inpstr2_path: 'user:pword@www.euref-ip.net:2101/ZIM20' #
+    -- Set the base station stream path (see above for options).
+
+inpstr2_format: rtcm2        #(0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+    -- Set the base station stream format.
+
+# Base station location
+    -- Set basestation location
+ant2_postype: rtcm        # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)
+    -- Set the base station location type.
+        -llh:  latitude, longitude, height
+        -xyz:  xyz in ECEF
+        -single:  calculate position via single solution
+        -posfile:  get position from a .pos file
+        -rinexhead:  get position from the head of a rinex file.  This is used in
+            post-processing, as most NTRIP stations allow datalogs to be downloaded
+            using the RINEX file format, which includes the position in the header.
+        -rtcm:  get the position from an RTCM stream.  If the base station stream
+            is using the RTCM format, then it may include the position as part of
+            the data that is sent (e.g. NTRIP casters include this in their data
+            streams).  Uses this published position. 
+
+ant2_pos1: 0  # (deg|m) # BASE POSITION
+    -- Set latitude (llh) or x (xyz) position of base station.    
+
+ant2_pos2: 0  # (deg|m) # BASE POSITION
+    -- Set longitude (llh) or y (xyz) position of base station.
+    
+ant2_pos3: 0  # (m|m)	# BASE POSITION
+    -- Set height (llh) or z (xyz) position of base station.
+
+## Output streams (separate from ROS messages)
+
+outstr1_type: tcpsvr        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+    -- Set first output stream type
+
+outstr1_path: ':@:8601/:'  # SOLUTION IS OUTPUT HERE AND via ros @ topic "/baseline"
+    -- Set first output stream path
+
+outstr1_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
+    -- Set first output stream format
+
+
+## Logging output streams
+
+logstr1_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+    -- Set type of logging stream for rover data.
+
+logstr1_path: '$(find rtklib)/logs/%Y%m%d_%h%M_rover_rtk_server'
+    -- Set path for rover data logging.
+
+logstr2_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+    -- Set type of logging stream for base station data.
+
+logstr2_path: '$(find rtklib)/logs/%Y%m%d_%h%M_base_rtk_server'
+    -- Set path for base station data logging.
+

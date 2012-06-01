@@ -9,48 +9,39 @@ pos1_soltype: forward    # (0:forward,1:backward,2:combined)
 pos1_elmask: 15         # (deg)
 pos1_snrmask: 0          # (dBHz)
 pos1_dynamics: !!str off        # (0:off,1:on)
-
-
-misc_timeinterp: !!str off        # (0:off,1:on)
-misc_sbasatsel: 0          # (0:all)
+pos2_armode: !!str off # (0:off,1:continuous,2:instantaneous,3:fix_and_hold)
 
 
 ## Input streams
 # Rover input
-inpstr1_type: serial     # ROVER (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr1_path: 'ttyACM0:57600:8:n:1:off' # @ADAPT: CHANGE ROVER MEAS SOURCE
+inpstr1_type: tcpsvr     # ROVER (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr1_path:  ':@:8600/:' # CHANGE ROVER MEAS SOURCE
 inpstr1_format: ubx       # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+
 # Base station input
-inpstr2_type: ntripcli     # BASE (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
-inpstr2_path: 'aslteam:aslethz@www.euref-ip.net:2101/ZIM20' # @ADAPT: CHANGE BASE MEAS SOURCE
-inpstr2_format: rtcm2        #(0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+inpstr2_type: serial     # BASE (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
+inpstr2_path: 'ttyACM0:57600:8:n:1:off' # 
+inpstr2_format: ubx       #(0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+
 # Base station location
 ant2_postype: rtcm        # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)
-ant2_pos1: 0  # (deg|m) # @ADAPT:STATION 2 POSITION
-ant2_pos2: 0  # (deg|m) # @ADAPT:STATION 2 POSITION
-ant2_pos3: 0  # (m|m)	# @ADAPT:STATION 2 POSITION
-ant2_anttype: ''
-ant2_antdele: 0          # (m)
-ant2_antdeln: 0          # (m)
-ant2_antdelu: 0          # (m)
-
+ant2_pos1: 0  # (deg|m) # SET THIS POSITION
+ant2_pos2: 0  # (deg|m) # SET THIS POSITION
+ant2_pos3: 0  # (m|m)	# SET THIS POSITION
 
 
 ## Output streams (separate from ROS messages)
 outstr1_type: tcpsvr        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-outstr1_path: ':@:8601/:'  # @ADAPT: SOLUTION IS OUTPUT HERE AND via ros @ topic "/baseline"
+outstr1_path: ':@:8601/:'  # SOLUTION IS OUTPUT HERE AND via ros @ topic "/baseline"
 outstr1_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
-outstr2_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-outstr2_path: ''
-outstr2_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
+
 
 ## Logging output streams
 logstr1_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
 logstr1_path: '$(find rtklib)/logs/%Y%m%d_%h%M_rover_rtk_server'
 logstr2_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
 logstr2_path: '$(find rtklib)/logs/%Y%m%d_%h%M_base_rtk_server'
-logstr3_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr3_path: ''
+
 
 
 #####################################################
@@ -63,7 +54,7 @@ pos1_tropopt: saas       # (0:off,1:saas,2:sbas,3:est_ztd,4:est_ztdgrad)
 pos1_sateph: brdc       # (0:brdc,1:precise,2:brdc+sbas,3:brdc+ssrapc,4:brdc+ssrcom)
 pos1_exclsats: ''            # (prn ...)
 pos1_navsys: 5          # (1:gps+2:sbas+4:glo+8:gal+16:qzs+32:comp)
-pos2_armode: continuous # (0:off,1:continuous,2:instantaneous,3:fix_and_hold)
+
 pos2_gloarmode: autocal    # (0:off,1:on,2:autocal)
 pos2_arthres: 3
 pos2_arlockcnt: 0
@@ -78,6 +69,8 @@ pos2_rejgdop: 30
 pos2_niter: 1
 pos2_baselen: 0          # (m)
 pos2_basesig: 0          # (m)
+misc_timeinterp: !!str off        # (0:off,1:on)
+misc_sbasatsel: 0          # (0:all)
 
 # Set position of rover antenna
 ant1_postype: llh        # (0:llh,1:xyz,2:single,3:posfile,4:rinexhead,5:rtcm)
@@ -89,6 +82,12 @@ ant1_antdele: 0          # (m)
 ant1_antdeln: 0          # (m)
 ant1_antdelu: 0          # (m)
 
+# Set base station antenna type
+ant2_anttype: ''
+ant2_antdele: 0          # (m)
+ant2_antdeln: 0          # (m)
+ant2_antdelu: 0          # (m)
+
 # To send nmea data to base station
 inpstr2_nmeareq: !!str off        # (0:off,1:latlon,2:single)
 inpstr2_nmealat: 0          # (deg)
@@ -98,6 +97,13 @@ inpstr2_nmealon: 0          # (deg)
 inpstr3_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,7:ntripcli,8:ftp,9:http)
 inpstr3_path: ''
 inpstr3_format: rtcm2      # (0:rtcm2,1:rtcm3,2:oem4,3:oem3,4:ubx,5:ss2,6:hemis,7:skytraq,8:gw10,9:javad,15:sp3)
+logstr3_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+logstr3_path: ''
+
+# Extra output stream
+outstr2_type: !!str off        # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
+outstr2_path: ''
+outstr2_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
 
 # Output file options
 out_solformat: enu        # (0:llh,1:xyz,2:enu,3:nmea)

@@ -379,6 +379,53 @@ static void udpos(rtk_t *rtk, double tt)
     }
     free(F); free(FP); free(xp);
 }
+/*gridanie{*/
+/* measurement update for velocity */
+/*
+static void measvel(rtk_t *rtk, const double *vels, const double *R, int nv)
+{
+    double pos[3], vel_enu[3], vel_ecef[3];
+    // mode checkes
+    // fixed mode 
+    if (rtk->opt.mode==PMODE_FIXED) return;
+
+    // static mode 
+    if (rtk->opt.mode==PMODE_STATIC) return;
+    
+    // kinmatic mode without dynamics 
+    if (!rtk->opt.dynamics) return;
+    
+    // if we clear that, make the matrices for measurement update
+    // body2enu(vel_enu, vels,nv,attitude);  // measurement needs to be in ENU 
+    ecef2pos(rtk->x,pos);
+    enu2ecef(pos, vel_enu, vel_ecef); // convert the velocities from ENU to ECEF
+    
+    // create the measument matrix
+    H=zeros(rtk->nx,nv);  // measurement model matrix
+    for (int i=0;i<nv;i++){
+        H[3+i+i*rtk->nx] = 1;
+    }
+    // calculate innovation
+    y = mat(nv,1);
+    for (int i=0;i<nv;i++){
+        y[i] = vel_ecef[i] - rtk->x[3+i];
+    }
+    // convert the measurement noise to ECEF
+    R_ecef=zeros(nv,nv);  // measurement model matrix
+    covecef(pos, R, R_ecef);
+    
+    // kalman filter measurement update
+    matcpy(xp,rtk->x,rtk->nx,1);
+    matcpy(Pp,rtk->P,rtk->nx,rtk->nx);
+    if ((info=filter(xp,Pp,H,y,R_ecef,rtk->nx,nv))) {
+        errmsg(rtk,"filter error (info=%d)\n",info);
+        stat=SOLQ_NONE;
+        break;
+    }
+}
+*/
+/*}gridanie*/
+
 /* temporal update of ionospheric parameters ---------------------------------*/
 static void udion(rtk_t *rtk, double tt, double bl, const int *sat, int ns)
 {
