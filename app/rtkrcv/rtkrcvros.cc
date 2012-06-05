@@ -50,7 +50,7 @@
 /*}*/
 
 /*gridanie{*/
-#include "rtklib/SingleResponse.h"
+#include "rtklibros/SingleResponse.h"
 #include "rtklib_params.h"
 #include <sstream>
 /*} end-gridanie*/
@@ -1746,7 +1746,7 @@ bool fetch_params_from_server(void)
 }
 
 /** fetch_params_callback()  Fetch parameters from param server after receiving ros request. **/
-bool fetch_params_callback(rtklib::SingleResponse::Request& request, rtklib::SingleResponse::Response& response)
+bool fetch_params_callback(rtklibros::SingleResponse::Request& request, rtklibros::SingleResponse::Response& response)
 {
     response.answer = "Fetch params request received.";
     bool result = fetch_params_from_server();
@@ -1754,7 +1754,7 @@ bool fetch_params_callback(rtklib::SingleResponse::Request& request, rtklib::Sin
 }
 
 /** restart_callback()  Restart the rtksvr after receiving ros request. **/
-bool restart_callback(rtklib::SingleResponse::Request& request, rtklib::SingleResponse::Response& response)
+bool restart_callback(rtklibros::SingleResponse::Request& request, rtklibros::SingleResponse::Response& response)
 {
     std::cout << "Restart called via ROS service." << std::endl;
 

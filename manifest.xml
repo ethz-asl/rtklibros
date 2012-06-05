@@ -12,7 +12,7 @@
   <depend package="geometry_msgs"/>
 
  <export>
-      <cpp cflags="-I${prefix}/src"/>
+      <cpp cflags="-I${prefix}/src -I${prefix}/srv_gen/cpp/include"/>
   </export>
 
 </package>
