@@ -10,7 +10,7 @@
   <url>http://ros.org/wiki/rtklib</url>
   <depend package="roscpp"/>
   <depend package="geometry_msgs"/>
-
+<depend package="roslib"/>
  <export>
       <cpp cflags="-I${prefix}/src -I${prefix}/srv_gen/cpp/include"/>
   </export>
