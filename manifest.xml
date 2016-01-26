@@ -1,13 +1,13 @@
 <package>
-  <description brief="rtklib">
+  <description brief="rtklibros">
 
-     rtklib
+     rtklibros
 
   </description>
   <author>Simon Lynen</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/rtklib</url>
+  <url>http://ros.org/wiki/rtklibros</url>
   <depend package="roscpp"/>
   <depend package="geometry_msgs"/>
 <depend package="roslib"/>

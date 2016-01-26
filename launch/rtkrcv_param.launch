@@ -1,10 +1,10 @@
 <launch>
-    <node name="rtkrcv" pkg="rtklib" type="rtkrcv" clear_params="true" output="screen"
+    <node name="rtkrcv" pkg="rtklibros" type="rtkrcv" clear_params="true" output="screen"
 
 args="-t 5 -s " 
 
 >
-	<rosparam file="$(find rtklib)/params/RoverBase.yaml"/>
+	<rosparam file="$(find rtklibros)/params/RoverBase.yaml"/>
     </node>
 </launch>
 

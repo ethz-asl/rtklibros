@@ -1,7 +1,7 @@
 <launch>
-    <node name="rtkrcv" pkg="rtklib" type="rtkrcv" clear_params="true" output="screen"
+    <node name="rtkrcv" pkg="rtklibros" type="rtkrcv" clear_params="true" output="screen"
 
-args="-t 5 -s -o $(find rtklib)/conf/rtk_server.conf" 
+args="-t 5 -s -o $(find rtklibros)/conf/rtk_server.conf" 
 
 >
 	

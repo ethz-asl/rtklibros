@@ -38,9 +38,9 @@ outstr1_format: enu        # (0:llh,1:xyz,2:enu,3:nmea)
 
 ## Logging output streams
 logstr1_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr1_path: '$(find rtklib)/logs/%Y%m%d_%h%M_rover_rtk_server'
+logstr1_path: '$(find rtklibros)/logs/%Y%m%d_%h%M_rover_rtk_server'
 logstr2_type: file       # (0:off,1:serial,2:file,3:tcpsvr,4:tcpcli,6:ntripsvr)
-logstr2_path: '$(find rtklib)/logs/%Y%m%d_%h%M_base_rtk_server'
+logstr2_path: '$(find rtklibros)/logs/%Y%m%d_%h%M_base_rtk_server'
 
 
 

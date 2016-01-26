@@ -744,7 +744,7 @@ extern int rtksvrstart(rtksvr_t *svr, int cycle, int buffsize, int *strs,
 		rw=i<3?STR_MODE_R:STR_MODE_W;
 		if (strs[i]!=STR_FILE) rw|=STR_MODE_W;
 		/*slynen{*/
-		repstr(paths[i],"$(find rtklib)",ros::package::getPath("rtklib").c_str()); /*TODO: could be done by extracting the package name*/
+                repstr(paths[i],"$(find rtklibros)",ros::package::getPath("rtklibros").c_str()); /*TODO: could be done by extracting the package name*/
 		/*}*/
 		if (!stropen(svr->stream+i,strs[i],rw,paths[i])) {
 			/*slynen{*/
